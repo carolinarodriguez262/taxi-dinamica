@@ -32,22 +32,14 @@
         // But rating can be given only once for each appointment
         public bool? IsPartnerRatedByTheUser { get; set; }
 
-        [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
-        [StringLength(GlobalConstants.DataValidations.AddressMaxLength,
-            ErrorMessage = GlobalConstants.ErrorMessages.DriverName,
-            MinimumLength = GlobalConstants.DataValidations.AddressMinLength)]
+
         public string AddressStart { get; set; }
 
-        [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
-        [StringLength(GlobalConstants.DataValidations.AddressMaxLength,
-                    ErrorMessage = GlobalConstants.ErrorMessages.DriverName,
-                    MinimumLength = GlobalConstants.DataValidations.AddressMinLength)]
+
         public string AddressEnd { get; set; }
 
-        [MaxLength(GlobalConstants.DataValidations.DescriptionMaxLength,
-                    ErrorMessage = GlobalConstants.ErrorMessages.DescriptionMax)]
         public string Comment { get; set; }
-        
+
         public string DriverMessage { get; set; }
 
         public int Price { get; set; } = 0;

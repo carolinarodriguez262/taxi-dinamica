@@ -17,7 +17,7 @@
             }
 
             var partners = new Partner[]
-            {
+           {
                     // 1.
                     new Partner
                     {
@@ -30,6 +30,13 @@
                         ImageUrl = GlobalConstants.Images.DemoImg,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl =  GlobalConstants.Images.DemoImg,
+                        DocOperacionUrl =  GlobalConstants.Images.DemoImg,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -42,6 +49,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi2,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi2,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi2,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -54,6 +68,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi3,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi3,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi3,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
 
                     // 2.
@@ -68,6 +89,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi4,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi4,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi4,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -80,6 +108,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi3,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi3,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi3,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -92,6 +127,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi2,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.DemoImg,
+                        DocOperacionUrl = GlobalConstants.Images.DemoImg,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
 
                     // 3. 
@@ -106,6 +148,13 @@
                         ImageUrl = GlobalConstants.Images.DemoImg,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.DemoImg,
+                        DocOperacionUrl = GlobalConstants.Images.DemoImg,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -118,6 +167,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi2,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi2,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi2,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -130,6 +186,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi3,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi2,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi2,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
 
                     // 4. 
@@ -144,6 +207,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi4,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi4,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi4,
+                        DocPaseUrl = GlobalConstants.Images.DemoImg,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -156,6 +226,13 @@
                         ImageUrl = GlobalConstants.Images.Taxi3,
                         Rating = 0.0,
                         RatersCount = 0,
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi3,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi3,
+                        DocPaseUrl = GlobalConstants.Images.Taxi3,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
                     },
                     new Partner
                     {
@@ -168,8 +245,15 @@
                         ImageUrl = GlobalConstants.Images.Taxi2,
                         Rating = 0.0,
                         RatersCount = 0,
-                    }
-                };
+                        DocLicenciaUrl = GlobalConstants.Images.Taxi2,
+                        DocOperacionUrl = GlobalConstants.Images.Taxi2,
+                        DocPaseUrl = GlobalConstants.Images.Taxi2,
+                        DocSeguroUrl = GlobalConstants.Images.DemoImg,
+                        DocSoatUrl = GlobalConstants.Images.DemoImg,
+                        DocTarjetonUrl = GlobalConstants.Images.DemoImg,
+                        DocTecnoUrl = GlobalConstants.Images.DemoImg,
+                    },
+           };
 
             await dbContext.AddRangeAsync(partners);
         }
