@@ -23,6 +23,8 @@
 
         public string DocTourUrl { get; set; }
 
+        public bool IsNormalTour { get; set; }
+
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         public string PartnerId { get; set; }
 
