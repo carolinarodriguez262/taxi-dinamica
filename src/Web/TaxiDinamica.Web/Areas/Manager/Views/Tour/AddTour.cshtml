@@ -3,4 +3,72 @@
     this.ViewData["Title"] = "Añadir Rutas";
 }
 
-<h2>Información de Mi Taxi</h2>
+<h2>Rutas</h2>
+<form method="post" enctype="multipart/form-data" class="pt-4">
+    <input asp-for="@Model.PartnerId" value="@Model.PartnerId" hidden/>
+    <div class="form-group row">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" asp-for="@Model.IsNormalTour" name="IsNormalTour" id="IsNormalTour" value="true" checked>
+            <label class="form-check-label" for="IsNormalTour">@Html.DisplayNameFor(Model => Model.IsNormalTour)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" asp-for="@Model.IsSeveralTours" name="IsNormalTour" id="IsSeveralTours" value="true">
+            <label class="form-check-label" for="IsSeveralTours">@Html.DisplayNameFor(Model => Model.IsSeveralTours)</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.TourStartTime)</label>
+        <div class="col-md-8 col-sm-12">
+            <input type="time" asp-for="@Model.TourStartTime" class="form-control" required="required">
+            <span asp-validation-for="TourStartTime" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.TourEndTime)</label>
+        <div class="col-md-8 col-sm-12">
+            <input type="time" asp-for="@Model.TourEndTime" class="form-control" required="required">
+            <span asp-validation-for="TourEndTime" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.TourStartAddress)</label>
+        <div class="col-md-8 col-sm-12">
+            <input type="text" asp-for="@Model.TourStartAddress" class="form-control" required="required">
+            <span asp-validation-for="TourStartAddress" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.TourEndAddress)</label>
+        <div class="col-md-8 col-sm-12">
+            <input type="text" asp-for="@Model.TourEndAddress" class="form-control" required="required">
+            <span asp-validation-for="TourEndAddress" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.DocTourUrl)</label>
+        <div class="col-md-8 col-sm-12">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="DocTourUrl" asp-for="@Model.DocTourUrl">
+                <label class="custom-file-label" for="DocTourUrl" data-browse="Elegir">Seleccionar Archivo</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row mt-4">
+        <div class="col col-sm-6">
+            <a class="btn btn-danger" asp-area="Manager" asp-controller="Partners" asp-action="Details" asp-route-id="">Cancelar</a>
+        </div>
+        <div class="col col-sm-6 text-right">
+            <button type="submit" class="btn btn-success" asp-area="Manager" asp-controller="Tour"
+                    asp-action="AddTour">
+                Enviar datos
+            </button>
+        </div>
+    </div>
+
+</form>

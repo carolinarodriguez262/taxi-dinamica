@@ -30,6 +30,9 @@
         [Display(Name = "Ruta Normal")]
         public bool IsNormalTour { get; set; }
 
+        [Display(Name = "Ruta Varias Recorrido")]
+        public bool IsSeveralTours { get; set; }
+
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         public string PartnerId { get; set; }
     }
