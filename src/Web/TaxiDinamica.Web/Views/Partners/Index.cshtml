@@ -18,11 +18,10 @@
 }
 
 <div class="container-fluid">
-    <div class="row gx-2">
+    <div class="row gx-2 ">
         @foreach (var Partner in Model.Partners)
         {
-            <div
-            class="col card rounded overflow-hidden shadow-md flex-1 bg-white col-lg-4 col-md-3 col-sm-2 border-b-4 border-blue-500 mb-2 d-flex align-items-stretch">
+            <div class="col-12 col-md-4 card rounded overflow-hidden shadow-md flex-1 bg-white  border-b-4 border-blue-500 mb-2 d-flex align-items-stretch">
                 <img src="@Partner.ImageUrl" alt="@Partner.Placa"
                 class="card-image image-fluid img-thumbail rounded pt-3" />
                 <div class="py-4 md:p-6 bg-white flex flex-col flex-1">

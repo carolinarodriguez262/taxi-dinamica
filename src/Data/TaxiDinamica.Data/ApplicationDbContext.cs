@@ -6,11 +6,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    using TaxiDinamica.Data.Common.Models;
-    using TaxiDinamica.Data.Models;
-
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using TaxiDinamica.Data.Common.Models;
+    using TaxiDinamica.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -29,6 +28,8 @@
         public DbSet<Service> Services { get; set; }
 
         public DbSet<City> Cities { get; set; }
+
+        public DbSet<Parameters> Parameters { get; set; }
 
         public DbSet<Partner> Partners { get; set; }
 

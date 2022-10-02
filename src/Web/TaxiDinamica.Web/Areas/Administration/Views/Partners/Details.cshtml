@@ -42,22 +42,36 @@
             <tbody>
                 @foreach (var docs in Model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public))
                 {
-                    <tr>
-                        <th scope="row">@docs.Name</th>
-                        <td>
-                            <span class="badge badge-danger">No Disponible</span>
-                            <span class="badge badge-success">Descargar</span>
-                        </td>
-                        <td>
-                            @* <form method="post">
-                                <button type="submit" class="btn btn-outline-info btn-sm" asp-area="Manager"
-                                asp-controller="Partners" asp-action="ChangeServiceAvailableStatus"
-                                asp-route-PartnerId="@Model.Id" asp-route-serviceId="@service.ServiceId">
-                                Rechazar
-                                </button>
-                                </form> *@
-                        </td>
-                    </tr>
+                    @if (@docs.Name == "DocPaseUrl"
+                   | @docs.Name == "DocCedulaUrl" | @docs.Name == "DocTarjetonUrl"
+                   | @docs.Name == "DocSoatUrl" | @docs.Name == "DocLicenciaUrl"
+                   | @docs.Name == "DocOperacionUrl"
+                   | @docs.Name == "DocSeguroUrl"
+                   | @docs.Name == "DocTecnoUrl")
+                    {
+                        <tr>
+
+                            <th scope="row">@docs.Name</th>
+                            <td>
+                                @if (string.IsNullOrEmpty(docs?.GetValue(Model)?.ToString()))
+                                {
+                                    <span class="badge badge-danger">No Disponible</span>
+                                }else{
+                                    <a class="badge badge-success" href="@docs.GetValue(Model)" target="_blank">Descargar</a>
+                                }
+                            </td>
+                            <td>
+                                @* <form method="post">
+                                    <button type="submit" class="btn btn-outline-info btn-sm" asp-area="Manager"
+                                    asp-controller="Partners" asp-action="ChangeServiceAvailableStatus"
+                                    asp-route-PartnerId="@Model.Id" asp-route-serviceId="@service.ServiceId">
+                                    Rechazar
+                                    </button>
+                                    </form> *@
+                            </td>
+                        </tr>
+                    }
+
                 }
             </tbody>
         </table>

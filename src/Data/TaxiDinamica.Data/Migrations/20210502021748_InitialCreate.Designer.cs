@@ -415,6 +415,41 @@ namespace TaxiDinamica.Data.Migrations
                     b.ToTable("PartnerServices");
                 });
 
+            modelBuilder.Entity("TaxiDinamica.Data.Models.Parameters", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                b.Property<string>("Email")
+                    .HasColumnType("nvarchar(256)")
+                    .HasMaxLength(256);
+
+                b.Property<string>("Indentity")
+                     .HasColumnType("nvarchar(256)")
+                    .HasMaxLength(256);
+
+                b.Property<bool>("Active")
+                    .HasColumnType("bit");
+
+                b.Property<DateTime?>("DateAdmission")
+                    .HasColumnType("datetime2");
+
+                b.Property<string>("Tipe")
+                    .HasColumnType("nvarchar(256)")
+                    .HasMaxLength(256);
+
+                b.Property<string>("Frequency")
+                    .HasColumnType("nvarchar(256)")
+                    .HasMaxLength(256);
+
+                b.HasKey("Id");
+
+                b.ToTable("Parameters");
+            });
+
+
             modelBuilder.Entity("TaxiDinamica.Data.Models.Service", b =>
                 {
                     b.Property<int>("Id")

@@ -1,0 +1,37 @@
+﻿@model TaxiDinamica.Web.ViewModels.Parameters.ParametersListViewModel
+@{
+    this.ViewData["Title"] = "Parametros";
+}
+
+<h2>
+    Todas los usuarios (@Model.Parameters.Count())
+ 
+</h2>
+
+<table class="table table-hover table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Identificación</th>
+            <th scope="col">Activo(Parametro Cada Mes)</th>
+            <th scope="col">Fecha Ultimo Ingreso</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Frecuencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var parameter in this.Model.Parameters)
+        {
+            <tr>
+                <th scope="row">@parameter.Id</th>
+                <td>@parameter.Email</td>
+                <td>@parameter.Indentity</td>
+                <td>@parameter.Active</td>
+                <td>@parameter.DateAdmission</td>
+                <td>@parameter.Tipe</td>
+                <td>@parameter.Frequency</td>
+            </tr>
+        }
+    </tbody>
+</table>

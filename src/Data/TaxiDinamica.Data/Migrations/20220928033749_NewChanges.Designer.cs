@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaxiDinamica.Data;
 
 namespace TaxiDinamica.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220928033749_NewChanges")]
+    partial class NewChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -550,40 +552,6 @@ namespace TaxiDinamica.Data.Migrations
                     b.ToTable("PartnerServices");
                 });
 
-            modelBuilder.Entity("TaxiDinamica.Data.Models.Schedule", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Day")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PartnerId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PartnerId");
-
-                    b.ToTable("Schedules");
-                });
-
             modelBuilder.Entity("TaxiDinamica.Data.Models.Service", b =>
                 {
                     b.Property<int>("Id")
@@ -623,56 +591,6 @@ namespace TaxiDinamica.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Services");
-                });
-
-            modelBuilder.Entity("TaxiDinamica.Data.Models.Tour", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DocTourUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsNormalTour")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PartnerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("TourEndAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("TourEndTime")
-                        .HasColumnType("time");
-
-                    b.Property<string>("TourStartAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("TourStartTime")
-                        .HasColumnType("time");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PartnerId");
-
-                    b.ToTable("Tours");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -753,15 +671,6 @@ namespace TaxiDinamica.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TaxiDinamica.Data.Models.Direction", b =>
-                {
-                    b.HasOne("TaxiDinamica.Data.Models.Tour", "Tour")
-                        .WithMany("Directions")
-                        .HasForeignKey("TourId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("TaxiDinamica.Data.Models.Partner", b =>
                 {
                     b.HasOne("TaxiDinamica.Data.Models.Category", "Category")
@@ -796,27 +705,11 @@ namespace TaxiDinamica.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TaxiDinamica.Data.Models.Schedule", b =>
-                {
-                    b.HasOne("TaxiDinamica.Data.Models.Partner", "Partner")
-                        .WithMany()
-                        .HasForeignKey("PartnerId");
-                });
-
             modelBuilder.Entity("TaxiDinamica.Data.Models.Service", b =>
                 {
                     b.HasOne("TaxiDinamica.Data.Models.Category", "Category")
                         .WithMany("Services")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("TaxiDinamica.Data.Models.Tour", b =>
-                {
-                    b.HasOne("TaxiDinamica.Data.Models.Partner", "Partner")
-                        .WithMany()
-                        .HasForeignKey("PartnerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

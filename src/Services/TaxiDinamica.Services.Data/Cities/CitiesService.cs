@@ -4,10 +4,10 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
     using TaxiDinamica.Data.Common.Repositories;
     using TaxiDinamica.Data.Models;
     using TaxiDinamica.Services.Mapping;
-    using Microsoft.EntityFrameworkCore;
 
     public class CitiesService : ICitiesService
     {

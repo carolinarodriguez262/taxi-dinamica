@@ -79,7 +79,7 @@ namespace TaxiDinamica.Web.Areas.Identity.Pages.Account.Manage
             this.logger.LogInformation("User changed their password successfully.");
             this.StatusMessage = "Tu contraseña ha sido cambiada.";
 
-            return this.RedirectToPage();
+            return this.Page();
         }
 
         public class InputModel

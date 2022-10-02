@@ -21,6 +21,7 @@
     using TaxiDinamica.Services.Data.Appointments;
     using TaxiDinamica.Services.Data.Categories;
     using TaxiDinamica.Services.Data.Cities;
+    using TaxiDinamica.Services.Data.Parameters;
     using TaxiDinamica.Services.Data.Directions;
     using TaxiDinamica.Services.Data.Partners;
     using TaxiDinamica.Services.Data.PartnerServicesServices;
@@ -60,6 +61,8 @@
                     });
 
             services.AddControllersWithViews();
+            //services.AddRazorRuntimeCompilation();
+           
             services.AddRazorPages();
 
             services.AddSingleton(this.configuration);
@@ -85,9 +88,11 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IEmailSenderSmtp, EmailSenderSmtp>();
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IServicesService, ServicesService>();
             services.AddTransient<ICitiesService, CitiesService>();
+            services.AddTransient<IParametersService, ParametersService>();
             services.AddTransient<IPartnersService, PartnersService>();
             services.AddTransient<IPartnerServicesService, PartnerServicesService>();
             services.AddTransient<IAppointmentsService, AppointmentsService>();
