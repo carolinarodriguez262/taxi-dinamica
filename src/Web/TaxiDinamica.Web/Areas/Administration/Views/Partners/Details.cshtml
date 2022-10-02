@@ -46,7 +46,15 @@
                         <th scope="row">@docs.Name</th>
                         <td>
                             <span class="badge badge-danger">No Disponible</span>
-                            <span class="badge badge-success">Descargar</span>
+                            @if (@docs.Name == "DocPaseUrl"
+                           | @docs.Name == "DocCedulaUrl" | @docs.Name == "DocTarjetonUrl"
+                           | @docs.Name == "DocSoatUrl" | @docs.Name == "DocLicenciaUrl"
+                           | @docs.Name == "DocOperacionUrl"
+                           | @docs.Name == "DocSeguroUrl"
+                           | @docs.Name == "DocTecnoUrl")
+                            {
+                                <a class="badge badge-success" href="@docs.GetValue(Model)" target="_blank">Descargar</a>
+                            }
                         </td>
                         <td>
                             @* <form method="post">

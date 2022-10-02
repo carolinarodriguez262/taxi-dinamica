@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace TaxiDinamica.Data.Migrations
+﻿namespace TaxiDinamica.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class MigracionColumn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

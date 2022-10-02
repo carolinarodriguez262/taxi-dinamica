@@ -11,6 +11,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220928020429_newTable.cs" />
+    <Compile Remove="Migrations\20220928020429_newTable.Designer.cs" />
+    <Compile Remove="Migrations\20220928025151_newParameters.cs" />
+    <Compile Remove="Migrations\20220928025151_newParameters.Designer.cs" />
+    <Compile Remove="Migrations\20220928031846_NewPropertys.cs" />
+    <Compile Remove="Migrations\20220928031846_NewPropertys.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />
   </ItemGroup>
 

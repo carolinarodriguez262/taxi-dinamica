@@ -1,35 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using TaxiDinamica.Common;
-using TaxiDinamica.Data.Models;
-
-namespace TaxiDinamica.Web.Areas.Identity.Pages.Account
+﻿namespace TaxiDinamica.Web.Areas.Identity.Pages.Account
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Text.Encodings.Web;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+    using Microsoft.EntityFrameworkCore.Metadata;
+    using Microsoft.Extensions.Logging;
+    using TaxiDinamica.Common;
+    using TaxiDinamica.Data.Models;
+    using TaxiDinamica.Services.Data.Parameters;
+    using TaxiDinamica.Web.Controllers;
+    using TaxiDinamica.Web.ViewModels.Parameters;
+
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
         private readonly ILogger<LoginModel> logger;
+        private readonly IParametersService _parameters;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly UserManager<ApplicationUser> userManager;
 
         public LoginModel(
             SignInManager<ApplicationUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager, IParametersService parametersService)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.logger = logger;
+            this._parameters = parametersService;
         }
 
         [TempData]
@@ -69,8 +76,10 @@ namespace TaxiDinamica.Web.Areas.Identity.Pages.Account
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await this.signInManager.PasswordSignInAsync(this.Input.Email, this.Input.Password, this.Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
+
                 {
                     this.logger.LogInformation("Usuario loggeado.");
+                   // ParameterViewModel parameterViewModel = this._parameters.SaveFrecuency(Input.Email);
                     return this.LocalRedirect(returnUrl);
                 }
                 else if (result.RequiresTwoFactor)

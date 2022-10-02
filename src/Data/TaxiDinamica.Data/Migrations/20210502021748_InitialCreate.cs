@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace TaxiDinamica.Data.Migrations
+﻿namespace TaxiDinamica.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +19,7 @@ namespace TaxiDinamica.Data.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
+                    DeletedOn = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -50,7 +51,7 @@ namespace TaxiDinamica.Data.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
+                    DeletedOn = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -70,7 +71,7 @@ namespace TaxiDinamica.Data.Migrations
                     Title = table.Column<string>(maxLength: 60, nullable: false),
                     Content = table.Column<string>(maxLength: 3500, nullable: false),
                     Author = table.Column<string>(maxLength: 40, nullable: false),
-                    ImageUrl = table.Column<string>(nullable: false)
+                    ImageUrl = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -88,7 +89,7 @@ namespace TaxiDinamica.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 40, nullable: false),
-                    Description = table.Column<string>(maxLength: 700, nullable: false)
+                    Description = table.Column<string>(maxLength: 700, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -105,7 +106,7 @@ namespace TaxiDinamica.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Name = table.Column<string>(maxLength: 40, nullable: false)
+                    Name = table.Column<string>(maxLength: 40, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -120,7 +121,7 @@ namespace TaxiDinamica.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
+                    ClaimValue = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -141,7 +142,7 @@ namespace TaxiDinamica.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
+                    ClaimValue = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -161,7 +162,7 @@ namespace TaxiDinamica.Data.Migrations
                     LoginProvider = table.Column<string>(nullable: false),
                     ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: false)
+                    UserId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -179,7 +180,7 @@ namespace TaxiDinamica.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: false)
+                    RoleId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -205,7 +206,7 @@ namespace TaxiDinamica.Data.Migrations
                     UserId = table.Column<string>(nullable: false),
                     LoginProvider = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    Value = table.Column<string>(nullable: true)
+                    Value = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -230,7 +231,7 @@ namespace TaxiDinamica.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 40, nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(maxLength: 700, nullable: false)
+                    Description = table.Column<string>(maxLength: 700, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -262,7 +263,7 @@ namespace TaxiDinamica.Data.Migrations
                     Address = table.Column<string>(maxLength: 100, nullable: false),
                     Website = table.Column<string>(nullable: true),
                     Rating = table.Column<double>(nullable: false),
-                    RatersCount = table.Column<int>(nullable: false)
+                    RatersCount = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -298,7 +299,7 @@ namespace TaxiDinamica.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Available = table.Column<bool>(nullable: false)
+                    Available = table.Column<bool>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -331,7 +332,7 @@ namespace TaxiDinamica.Data.Migrations
                     PartnerId = table.Column<string>(nullable: false),
                     ServiceId = table.Column<int>(nullable: false),
                     Confirmed = table.Column<bool>(nullable: true),
-                    IsPartnerRatedByTheUser = table.Column<bool>(nullable: true)
+                    IsPartnerRatedByTheUser = table.Column<bool>(nullable: true),
                 },
                 constraints: table =>
                 {
