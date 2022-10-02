@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using TaxiDinamica.Common;
 using TaxiDinamica.Data.Models;
+using TaxiDinamica.Services.Messaging;
 
 namespace TaxiDinamica.Web.Areas.Identity.Pages.Account
 {
@@ -19,9 +20,9 @@ namespace TaxiDinamica.Web.Areas.Identity.Pages.Account
     public class ForgotPasswordModel : PageModel
     {
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly IEmailSender emailSender;
+        private readonly IEmailSenderSmtp emailSender;
 
-        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, IEmailSenderSmtp emailSender)
         {
             this.userManager = userManager;
             this.emailSender = emailSender;

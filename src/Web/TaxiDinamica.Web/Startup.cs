@@ -86,6 +86,7 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IEmailSenderSmtp, EmailSenderSmtp>();
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IServicesService, ServicesService>();
             services.AddTransient<ICitiesService, CitiesService>();

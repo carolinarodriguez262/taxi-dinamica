@@ -80,7 +80,7 @@
                 {
                     this.logger.LogInformation("Usuario loggeado.");
                    // ParameterViewModel parameterViewModel = this._parameters.SaveFrecuency(Input.Email);
-                    return this.LocalRedirect(returnUrl);
+                     return this.LocalRedirect(returnUrl);
                 }
                 else if (result.RequiresTwoFactor)
                 {
