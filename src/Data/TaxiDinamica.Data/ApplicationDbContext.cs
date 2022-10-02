@@ -37,6 +37,12 @@
 
         public DbSet<Appointment> Appointments { get; set; }
 
+        public DbSet<Tour> Tours { get; set; }
+
+        public DbSet<Schedule> Schedules { get; set; }
+
+        public DbSet<Direction> Directions { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -108,11 +114,11 @@
                 var entity = (IAuditInfo)entry.Entity;
                 if (entry.State == EntityState.Added && entity.CreatedOn == default)
                 {
-                    entity.CreatedOn = DateTime.UtcNow;
+                    entity.CreatedOn = DateTime.Now;
                 }
                 else
                 {
-                    entity.ModifiedOn = DateTime.UtcNow;
+                    entity.ModifiedOn = DateTime.Now;
                 }
             }
         }

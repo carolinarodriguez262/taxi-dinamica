@@ -18,6 +18,11 @@
                 <li><strong>Conductor</strong>: @Model.DriverName</li>
                 <li><strong>Número del Conductor</strong>: @Model.DriverContact</li>
             </ul>
+            <a class="btn btn-primary" asp-area="Manager" asp-controller="Tour" asp-action="AddTour"
+               asp-route-id="@Model.Id">
+                <span>Editar Rutas</span>
+                <i class="bi bi-plus-circle"></i>
+            </a>
         </div>
     </div>
     <!-- Panel -->

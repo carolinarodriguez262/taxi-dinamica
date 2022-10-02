@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaxiDinamica.Data;
 
 namespace TaxiDinamica.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220927040311_AddTablesTours")]
+    partial class AddTablesTours
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -384,33 +386,27 @@ namespace TaxiDinamica.Data.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("TaxiDinamica.Data.Models.Parameters", b =>
+            modelBuilder.Entity("TaxiDinamica.Data.Models.Direction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateAdmission")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<TimeSpan>("EstimatedEndTime")
+                        .HasColumnType("time");
 
-                    b.Property<int>("Frequency")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Indentity")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<TimeSpan>("EstimatedStartTime")
+                        .HasColumnType("time");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -418,14 +414,16 @@ namespace TaxiDinamica.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Tipe")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TourId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IsDeleted");
 
-                    b.ToTable("Parameters");
+                    b.HasIndex("TourId");
+
+                    b.ToTable("Directions");
                 });
 
             modelBuilder.Entity("TaxiDinamica.Data.Models.Partner", b =>
@@ -642,9 +640,6 @@ namespace TaxiDinamica.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsNormalTour")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")

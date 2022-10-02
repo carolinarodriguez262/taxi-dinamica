@@ -9,7 +9,12 @@
         ReaderObj.onloadend = function () { // set uploaded image data as background of div
             $("#" + id).css("background-image", "url(" + this.result + ")");
         }
-    } else {
+    } else {        
         alert("Debes subir una foto en formato imagen válida.");
     }
 });
+
+$('.custom-file-input').on('change', function () {
+    var fileName = $(this).val().split('\\').pop();
+    $(this).next('.custom-file-label').html(fileName);
+})
