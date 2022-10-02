@@ -18,13 +18,15 @@
     using TaxiDinamica.Data.Repositories;
     using TaxiDinamica.Data.Seeding;
     using TaxiDinamica.Services.Cloudinary;
-    using TaxiDinamica.Services.Data;
     using TaxiDinamica.Services.Data.Appointments;
     using TaxiDinamica.Services.Data.Categories;
     using TaxiDinamica.Services.Data.Cities;
+    using TaxiDinamica.Services.Data.Directions;
     using TaxiDinamica.Services.Data.Partners;
     using TaxiDinamica.Services.Data.PartnerServicesServices;
+    using TaxiDinamica.Services.Data.Schedules;
     using TaxiDinamica.Services.Data.Services;
+    using TaxiDinamica.Services.Data.Tours;
     using TaxiDinamica.Services.DateTimeParser;
     using TaxiDinamica.Services.Mapping;
     using TaxiDinamica.Services.Messaging;
@@ -90,6 +92,9 @@
             services.AddTransient<IPartnerServicesService, PartnerServicesService>();
             services.AddTransient<IAppointmentsService, AppointmentsService>();
             services.AddTransient<IDateTimeParserService, DateTimeParserService>();
+            services.AddTransient<IToursService, ToursService>();
+            services.AddTransient<ISchedulesService, SchedulesService>();
+            services.AddTransient<IDirectionsService, DirectionsService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
         }
 

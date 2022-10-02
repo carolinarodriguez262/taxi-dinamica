@@ -1,19 +1,23 @@
 ﻿namespace TaxiDinamica.Web.ViewModels.Tours
-{
+{    
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    using Microsoft.AspNetCore.Http;
+
     using TaxiDinamica.Common;
+    using TaxiDinamica.Web.ViewModels.Directions;
 
     public class TourInputModel
     {
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         [Display(Name = "Hora Inicio Recorrido")]
-        public TimeSpan TourStartTime { get; set; }
+        public TimeSpan? TourStartTime { get; set; }
 
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         [Display(Name = "Hora Fin Recorrido")]
-        public TimeSpan TourEndTime { get; set; }
+        public TimeSpan? TourEndTime { get; set; }
 
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         [Display(Name = "Lugar Inicio Recorrido")]
@@ -24,14 +28,14 @@
         public string TourEndAddress { get; set; }
 
         [Display(Name = "Mapa de Ruta")]
-        public string DocTourUrl { get; set; }
+        public IFormFile DocTourUrl { get; set; }
 
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
-        [Display(Name = "Ruta Normal")]
-        public bool IsNormalTour { get; set; }
+        public string TourType { get; set; }
 
-        [Display(Name = "Ruta Varias Recorrido")]
-        public bool IsSeveralTours { get; set; }
+        public List<string> DaysOfWeek { get; set; }
+
+        public List<DirectionInputModel> DirectionsList { get; set; }
 
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         public string PartnerId { get; set; }

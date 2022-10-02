@@ -1,26 +1,50 @@
 ﻿@model TaxiDinamica.Web.ViewModels.Tours.TourInputModel
 @{
     this.ViewData["Title"] = "Añadir Rutas";
+
+    var daysOfWeek = this.ViewData["DaysOfWeek"] as List<string>;
 }
 
 <h2>Rutas</h2>
 <form method="post" enctype="multipart/form-data" class="pt-4">
-    <input asp-for="@Model.PartnerId" value="@Model.PartnerId" hidden/>
+    <input asp-for="@Model.PartnerId" value="@Model.PartnerId" hidden />
+
     <div class="form-group row">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" asp-for="@Model.IsNormalTour" name="IsNormalTour" id="IsNormalTour" value="true" checked>
-            <label class="form-check-label" for="IsNormalTour">@Html.DisplayNameFor(Model => Model.IsNormalTour)</label>
+        <label class="col-md-4 col-sm-12 col-form-label">Horario</label>
+    </div>
+
+    <div class="form-group">
+        @foreach (var day in daysOfWeek)
+        {
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input id="@day" type="checkbox" class="custom-control-input" name="DaysOfWeek" value="@day" />
+                <label class="custom-control-label" for="@day">@day</label>
+            </div>
+        }
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-sm-12 col-form-label">Tipo de Ruta</label>
+    </div>
+
+    <div class="form-group">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input class="form-check-input" type="radio" asp-for="@Model.TourType" name="TourType" id="IsNormalTour" 
+                   onchange="handleChanged(this);" value="Normal" checked>
+            <label class="form-check-label" for="IsNormalTour">Ruta Normal</label>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" asp-for="@Model.IsSeveralTours" name="IsNormalTour" id="IsSeveralTours" value="true">
-            <label class="form-check-label" for="IsSeveralTours">@Html.DisplayNameFor(Model => Model.IsSeveralTours)</label>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input class="form-check-input" type="radio" asp-for="@Model.TourType" name="TourType" id="IsSeveralTours" 
+                   onchange="handleChanged(this);" value="Varios">
+            <label class="form-check-label" for="IsSeveralTours">Ruta Varios Recorridos</label>
         </div>
     </div>
+
 
     <div class="form-group row">
         <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.TourStartTime)</label>
         <div class="col-md-8 col-sm-12">
-            <input type="time" asp-for="@Model.TourStartTime" class="form-control" required="required">
+            <input type="time" id="TourStartTime" asp-for="@Model.TourStartTime" class="form-control" required>
             <span asp-validation-for="TourStartTime" class="text-danger"></span>
         </div>
     </div>
@@ -28,7 +52,7 @@
     <div class="form-group row">
         <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.TourEndTime)</label>
         <div class="col-md-8 col-sm-12">
-            <input type="time" asp-for="@Model.TourEndTime" class="form-control" required="required">
+            <input type="time" id="TourEndTime" asp-for="@Model.TourEndTime" class="form-control" required>
             <span asp-validation-for="TourEndTime" class="text-danger"></span>
         </div>
     </div>
@@ -59,6 +83,36 @@
         </div>
     </div>
 
+    
+
+    <div id="FormDirections" style="display:none;">
+
+        <h2>Recorridos</h2>
+
+        @for (int i = 0; i < Model.DirectionsList.Count; i++)
+        {
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.DirectionsList[i].Address) @(i + 1)</label>
+                <div class="col-md-8 col-sm-12">
+                    <input type="text" asp-for="@Model.DirectionsList[i].Address" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.DirectionsList[i].EstimatedStartTime)</label>
+                <div class="col-md-8 col-sm-12">
+                    <input type="time" id="TourStartTime" asp-for="@Model.DirectionsList[i].EstimatedStartTime" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.DirectionsList[i].EstimatedEndTime)</label>
+                <div class="col-md-8 col-sm-12">
+                    <input type="time" id="TourEndTime" asp-for="@Model.DirectionsList[i].EstimatedEndTime" class="form-control">
+                </div>
+            </div>
+        }
+    </div>
+
+
     <div class="form-group row mt-4">
         <div class="col col-sm-6">
             <a class="btn btn-danger" asp-area="Manager" asp-controller="Partners" asp-action="Details" asp-route-id="">Cancelar</a>
@@ -72,3 +126,17 @@
     </div>
 
 </form>
+
+@section Scripts {
+    <script src="~/js/upload-image.js" asp-append-version="true"></script>
+    <script language="javascript">
+        function handleChanged(e) {
+            if (e.value == 'Normal') {
+                $("#FormDirections").hide();
+            }
+            else {
+                $("#FormDirections").show();
+            }
+        }
+    </script>
+}
