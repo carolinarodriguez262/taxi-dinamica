@@ -4,6 +4,7 @@
 
     using TaxiDinamica.Data.Models;
     using TaxiDinamica.Services.Mapping;
+    using TaxiDinamica.Web.ViewModels.Tours;
 
     public class PartnerViewModel : IMapFrom<Partner>
     {
@@ -43,5 +44,7 @@
         public double Rating { get; set; }
         public int RatersCount { get; set; }
         public int AppointmentsCount { get; set; }
+        public TourViewModel TourViewModel { get; set; }
+
     }
 }

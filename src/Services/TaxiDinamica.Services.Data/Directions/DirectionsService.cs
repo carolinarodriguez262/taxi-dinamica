@@ -45,5 +45,22 @@
 
             return direction.Id;
         }
+
+        public async Task<int> EditAsync(int id, string address, TimeSpan estimatedStartTime, TimeSpan estimatedEndTime, int tourId)
+        {
+            var direction = new Direction
+            {
+                Id = id,
+                Address = address,
+                EstimatedStartTime = estimatedStartTime,
+                EstimatedEndTime = estimatedEndTime,
+                TourId = tourId,
+            };
+
+            this.directionsRepository.Update(direction);
+            await this.directionsRepository.SaveChangesAsync();
+
+            return direction.Id;
+        }
     }
 }

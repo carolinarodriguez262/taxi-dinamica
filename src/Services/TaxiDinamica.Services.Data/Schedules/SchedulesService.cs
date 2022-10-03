@@ -43,5 +43,30 @@
             return schedule.Id;
         }
 
+        public async Task<int> EditAsync(int id, string day, string partnerId)
+        {
+            var scheduleEdit = new Schedule
+            {
+                Id = id,
+                Day = day,
+                PartnerId = partnerId,
+            };
+
+            this.scheduleRepository.Update(scheduleEdit);
+            await this.scheduleRepository.SaveChangesAsync();
+
+            return scheduleEdit.Id;
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var service =
+                await this.scheduleRepository
+                .AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
+            this.scheduleRepository.Delete(service);
+            await this.scheduleRepository.SaveChangesAsync();
+        }
     }
 }

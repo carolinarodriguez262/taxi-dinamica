@@ -9,5 +9,7 @@
         Task<IEnumerable<T>> GetAllByPartnerAsync<T>(string partnerId);
 
         Task<int> AddAsync(TimeSpan tourStartTime, TimeSpan tourEndTime, string tourStartAddress, string tourEndAddress, string docTourUrl, bool isNormalTour, string partnerId);
+
+        Task<int> EditAsync(int id, TimeSpan tourStartTime, TimeSpan tourEndTime, string tourStartAddress, string tourEndAddress, string docTourUrl, bool isNormalTour, string partnerId);
     }
 }

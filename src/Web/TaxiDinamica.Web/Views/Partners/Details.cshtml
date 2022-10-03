@@ -18,6 +18,31 @@
                 <li><strong>Conductor</strong>: @Model.DriverName</li>
                 <li><strong>Número del Conductor</strong>: @Model.DriverContact</li>
             </ul>
+
+            @if (Model.Tours.Count > 0)
+            {
+                <h3>Rutas</h3>
+                <ul>
+                    <li><strong>Hora Inicio Recorrido</strong>: @Model.Tours.First().TourStartTime</li>
+                    <li><strong>Hora Fin Recorrido</strong>: @Model.Tours.First().TourEndTime</li>
+                    <li><strong>Lugar Inicio Recorrido</strong>: @Model.Tours.First().TourStartAddress</li>
+                    <li><strong>Lugar Fin Recorrido</strong>: @Model.Tours.First().TourEndAddress</li>
+                </ul>
+                <div class="partner-details-slider swiper-container">
+                    <img src="@Model.Tours.First().DocTourUrl" alt="" class="img-fluid">
+                </div>
+                @for (int i = 0; i < Model.Tours.First().Directions.Count(); i++)
+                {
+                    <h3>Recorridos</h3>
+                    <h4>@("Dirección " + (i + 1))</h4>
+                    <ul>
+                        <li><strong>Hora Inicio Recorrido</strong>: @Model.Tours.First().Directions.ElementAt(i).EstimatedStartTime</li>
+                        <li><strong>Hora Fin Recorrido</strong>: @Model.Tours.First().Directions.ElementAt(i).EstimatedEndTime</li>
+                        <li><strong>Dirección</strong>: @Model.Tours.First().Directions.ElementAt(i).Address</li>
+                    </ul>
+                }
+            }
+
         </div>
     </div>
 

@@ -12,6 +12,7 @@
         {
             this.Appointments = new HashSet<Appointment>();
             this.Services = new HashSet<PartnerService>();
+            this.Tours = new HashSet<Tour>();
         }
 
         public string Placa { get; set; }
@@ -61,5 +62,7 @@
         public virtual ICollection<PartnerService> Services { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }
+
+        public virtual ICollection<Tour> Tours { get; set; }
     }
 }

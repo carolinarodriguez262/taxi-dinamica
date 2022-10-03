@@ -4,6 +4,7 @@
 
     using TaxiDinamica.Data.Models;
     using TaxiDinamica.Services.Mapping;
+    using TaxiDinamica.Web.ViewModels.Tours;
 
     public class PartnerWithServicesViewModel : IMapFrom<Partner>
     {
@@ -24,5 +25,7 @@
         public string DriverContact { get; set; }
 
         public virtual ICollection<PartnerServiceViewModel> Services { get; set; }
+
+        public virtual ICollection<TourViewModel> Tours { get; set; }
     }
 }

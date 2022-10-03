@@ -49,5 +49,25 @@
 
             return tour.Id;
         }
+
+        public async Task<int> EditAsync(int id, TimeSpan tourStartTime, TimeSpan tourEndTime, string tourStartAddress, string tourEndAddress, string docTourUrl, bool isNormalTour, string partnerId)
+        {
+            var tourEdit = new Tour
+            {
+                Id = id,
+                TourStartTime = tourStartTime,
+                TourEndTime = tourEndTime,
+                TourStartAddress = tourStartAddress,
+                TourEndAddress = tourEndAddress,
+                DocTourUrl = docTourUrl,
+                IsNormalTour = isNormalTour,
+                PartnerId = partnerId,
+            };
+
+            this.toursRepository.Update(tourEdit);
+            await this.toursRepository.SaveChangesAsync();
+
+            return tourEdit.Id;
+        }
     }
 }

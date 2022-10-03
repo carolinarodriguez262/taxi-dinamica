@@ -7,21 +7,26 @@
     using Microsoft.AspNetCore.Mvc;
     using TaxiDinamica.Services.Data.Categories;
     using TaxiDinamica.Services.Data.Partners;
+    using TaxiDinamica.Services.Data.Tours;
     using TaxiDinamica.Web.ViewModels.Categories;
     using TaxiDinamica.Web.ViewModels.Common.Pagination;
     using TaxiDinamica.Web.ViewModels.Partners;
+    using TaxiDinamica.Web.ViewModels.Tours;
 
     public class PartnersController : BaseController
     {
         private readonly IPartnersService partnersService;
         private readonly ICategoriesService categoriesService;
+        private readonly IToursService toursService;
 
         public PartnersController(
             IPartnersService partnersService,
-            ICategoriesService categoriesService)
+            ICategoriesService categoriesService,
+            IToursService toursService)
         {
             this.partnersService = partnersService;
             this.categoriesService = categoriesService;
+            this.toursService = toursService;
         }
 
         public async Task<IActionResult> Index(
@@ -61,6 +66,24 @@
             var partners = await this.partnersService
                 .GetAllWithSortingFilteringAndPagingAsync<PartnerViewModel>(searchString, sortId, pageSize, pageIndex);
             var partnersList = partners.ToList();
+
+            // Add Tour
+            foreach (var partner in partnersList)
+            {
+                var tours = await this.toursService.GetAllByPartnerAsync<TourViewModel>(partner.Id);
+
+                if (tours.Count() > 0)
+                {
+                    partner.TourViewModel = tours.First();
+                }
+                else
+                {
+                    partner.TourViewModel = new TourViewModel()
+                    {
+                        IsNormalTour = true,
+                    };
+                }
+            }
 
             var count = await this.partnersService
                 .GetCountForPaginationAsync(searchString, sortId);

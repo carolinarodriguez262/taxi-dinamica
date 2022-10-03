@@ -8,9 +8,12 @@
 
     using TaxiDinamica.Common;
     using TaxiDinamica.Web.ViewModels.Directions;
+    using TaxiDinamica.Web.ViewModels.Schedules;
 
     public class TourInputModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         [Display(Name = "Hora Inicio Recorrido")]
         public TimeSpan? TourStartTime { get; set; }
@@ -28,7 +31,9 @@
         public string TourEndAddress { get; set; }
 
         [Display(Name = "Mapa de Ruta")]
-        public IFormFile DocTourUrl { get; set; }
+        public IFormFile DocTour { get; set; }
+
+        public string DocTourUrl { get; set; }
 
         [Required(ErrorMessage = GlobalConstants.ErrorMessages.Required)]
         public string TourType { get; set; }

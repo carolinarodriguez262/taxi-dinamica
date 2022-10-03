@@ -9,5 +9,7 @@
         Task<IEnumerable<T>> GetAllByTourAsync<T>(int tourId);
 
         Task<int> AddAsync(string address, TimeSpan estimatedStartTime, TimeSpan estimatedEndTime, int tourId);
+
+        Task<int> EditAsync(int id, string address, TimeSpan estimatedStartTime, TimeSpan estimatedEndTime, int tourId);
     }
 }

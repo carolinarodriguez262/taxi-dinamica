@@ -2,12 +2,13 @@
 @{
     this.ViewData["Title"] = "Añadir Rutas";
 
-    var daysOfWeek = this.ViewData["DaysOfWeek"] as List<string>;
+    var daysOfWeek = this.ViewData["DaysOfWeek"] as List<Tuple<string, bool>>;
 }
 
 <h2>Rutas</h2>
 <form method="post" enctype="multipart/form-data" class="pt-4">
     <input asp-for="@Model.PartnerId" value="@Model.PartnerId" hidden />
+    <input asp-for="@Model.Id" value="@Model.Id" hidden />
 
     <div class="form-group row">
         <label class="col-md-4 col-sm-12 col-form-label">Horario</label>
@@ -17,8 +18,8 @@
         @foreach (var day in daysOfWeek)
         {
             <div class="custom-control custom-checkbox custom-control-inline">
-                <input id="@day" type="checkbox" class="custom-control-input" name="DaysOfWeek" value="@day" />
-                <label class="custom-control-label" for="@day">@day</label>
+                <input id="@day.Item1" type="checkbox" class="custom-control-input" name="DaysOfWeek" value="@day.Item1" checked="@day.Item2" />
+                <label class="custom-control-label" for="@day.Item1">@day.Item1</label>
             </div>
         }
     </div>
@@ -29,12 +30,12 @@
 
     <div class="form-group">
         <div class="custom-control custom-radio custom-control-inline">
-            <input class="form-check-input" type="radio" asp-for="@Model.TourType" name="TourType" id="IsNormalTour" 
+            <input class="form-check-input" type="radio" asp-for="@Model.TourType" name="TourType" id="IsNormalTour"
                    onchange="handleChanged(this);" value="Normal" checked>
             <label class="form-check-label" for="IsNormalTour">Ruta Normal</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <input class="form-check-input" type="radio" asp-for="@Model.TourType" name="TourType" id="IsSeveralTours" 
+            <input class="form-check-input" type="radio" asp-for="@Model.TourType" name="TourType" id="IsSeveralTours"
                    onchange="handleChanged(this);" value="Varios">
             <label class="form-check-label" for="IsSeveralTours">Ruta Varios Recorridos</label>
         </div>
@@ -74,23 +75,24 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.DocTourUrl)</label>
+        <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.DocTour)</label>
         <div class="col-md-8 col-sm-12">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" id="DocTourUrl" asp-for="@Model.DocTourUrl">
+                <input type="file" class="custom-file-input" id="DocTourUrl" asp-for="@Model.DocTour">
                 <label class="custom-file-label" for="DocTourUrl" data-browse="Elegir">Seleccionar Archivo</label>
             </div>
         </div>
     </div>
 
-    
 
-    <div id="FormDirections" style="display:none;">
+
+    <div id="FormDirections" style="@(Model.TourType == "Varios" ? "display:inline; " : "display:none;")">
 
         <h2>Recorridos</h2>
 
         @for (int i = 0; i < Model.DirectionsList.Count; i++)
         {
+            <input asp-for="@Model.DirectionsList[i].Id" value="@Model.DirectionsList[i].Id" hidden />
             <div class="form-group row">
                 <label class="col-md-4 col-sm-12 col-form-label">@Html.DisplayNameFor(Model => Model.DirectionsList[i].Address) @(i + 1)</label>
                 <div class="col-md-8 col-sm-12">
@@ -115,7 +117,7 @@
 
     <div class="form-group row mt-4">
         <div class="col col-sm-6">
-            <a class="btn btn-danger" asp-area="Manager" asp-controller="Partners" asp-action="Details" asp-route-id="">Cancelar</a>
+            <a class="btn btn-danger" asp-area="Manager" asp-controller="Partners" asp-action="Details" asp-route-id="@Model.PartnerId">Cancelar</a>
         </div>
         <div class="col col-sm-6 text-right">
             <button type="submit" class="btn btn-success" asp-area="Manager" asp-controller="Tour"
