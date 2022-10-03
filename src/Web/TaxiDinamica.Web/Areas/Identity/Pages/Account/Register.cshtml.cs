@@ -89,7 +89,7 @@ namespace TaxiDinamica.Web.Areas.Identity.Pages.Account
                     await this.emailSender.SendEmailAsync(
                         this.Input.Email,
                         "Confirmar tu correo",
-                        $"Porfavor confirma tu cuenta dando <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click aquí</a>.");
+                        $"Por favor confirma tu cuenta dando <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click aquí</a>.");
 
                     if (this.userManager.Options.SignIn.RequireConfirmedAccount)
                     {

@@ -41,7 +41,7 @@
         public static class ErrorMessages
         {
             public const string DriverName = "Este campo debe tener entre 5 y 100 caracteres.";
-            public const string DateTime = "Porfavor selecciona una fecha y hora valida en el selector de fechas a la izquirda.";
+            public const string DateTime = "Por favor selecciona una fecha y hora valida en el selector de fechas a la izquirda.";
             public const string Description = "El texto debe tener entre 50 y 700 caracteres.";
             public const string DescriptionMax = "El texto debe tener máximo 700 caracteres.";
             public const string Image = "Selecciona un archivo JPG, JPEG o PNG imagen con peso menor a 1MB.";

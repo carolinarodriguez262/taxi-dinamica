@@ -48,6 +48,7 @@
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
+        public string StatusMessage { get; private set; }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -94,6 +95,7 @@
                 else
                 {
                     this.ModelState.AddModelError(string.Empty, "Intento fallido.");
+                    this.StatusMessage = "Tu contraseña o usuario es incorrecto";
                     return this.Page();
                 }
             }

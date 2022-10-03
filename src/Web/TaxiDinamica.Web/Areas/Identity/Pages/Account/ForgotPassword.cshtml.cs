@@ -53,7 +53,7 @@ namespace TaxiDinamica.Web.Areas.Identity.Pages.Account
                 await this.emailSender.SendEmailAsync(
                     this.Input.Email,
                     "Reiniciar Contraseña",
-                    $"Porfavor crea una nueva contraseña dando <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click aquí</a>.");
+                    $"Por favor crea una nueva contraseña dando <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click aquí</a>.");
 
                 return this.RedirectToPage("./ForgotPasswordConfirmation");
             }
