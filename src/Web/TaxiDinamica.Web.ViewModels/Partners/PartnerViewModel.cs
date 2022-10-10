@@ -9,7 +9,9 @@
     public class PartnerViewModel : IMapFrom<Partner>
     {
         public string Id { get; set; }
+
         public string Placa { get; set; }
+
         public string ImageUrl { get; set; }
 
         [Display(Name = "Pase para Transporte Publico")]

@@ -12,5 +12,7 @@
         Task AddAsync(IEnumerable<string> partnersIds, int serviceId);
 
         Task ChangeAvailableStatusAsync(string partnerId, int serviceId);
+
+        Task<IEnumerable<T>> GetAllByPartnerIdAsync<T>(string partnerId);
     }
 }

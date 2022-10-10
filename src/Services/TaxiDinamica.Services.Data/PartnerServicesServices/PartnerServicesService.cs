@@ -28,6 +28,16 @@
             return partnerService;
         }
 
+        public async Task<IEnumerable<T>> GetAllByPartnerIdAsync<T>(string partnerId)
+        {
+            var partnerService =
+                await this.partnerServicesRepository
+                .All()
+                .Where(x => x.PartnerId == partnerId)
+                .To<T>().ToListAsync();
+            return partnerService;
+        }
+
         public async Task AddAsync(string partnerId, IEnumerable<int> servicesIds)
         {
             foreach (var serviceId in servicesIds)

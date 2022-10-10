@@ -77,9 +77,16 @@
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await this.signInManager.PasswordSignInAsync(this.Input.Email, this.Input.Password, this.Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
-
                 {
                     this.logger.LogInformation("Usuario loggeado.");
+                    var users = this.userManager.Users.ToList();
+                    var user = users.FirstOrDefault(x => x.Email == this.Input.Email);
+                    user.LastLogin = DateTime.Now;
+                    user.AmountLogins = user.AmountLogins == null
+                        ? 1
+                        : user.AmountLogins + 1;
+
+                    await this.userManager.UpdateAsync(user);
                    // ParameterViewModel parameterViewModel = this._parameters.SaveFrecuency(Input.Email);
                      return this.LocalRedirect(returnUrl);
                 }

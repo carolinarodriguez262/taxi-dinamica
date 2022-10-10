@@ -3,10 +3,23 @@
     this.ViewData["Title"] = "Parametros";
 }
 
-<h2>
-    Todas los usuarios (@Model.Parameters.Count())
- 
-</h2>
+<div class="row justify-content-between">
+    <div class="col">
+        <h2>
+            Todas los usuarios (@Model.Parameters.Count())
+        </h2>
+    </div>
+    <div class="col d-grid gap-2 d-md-flex justify-content-md-end pr-0 mb-2">
+        <form method="get">
+            <button class="btn btn-outline-primary" type="submit" asp-area="Administration" asp-controller="Parameters"
+                    asp-action="GenerarInformeUsuarios">
+                Descargar informe
+            </button>
+        </form>
+    </div>
+</div>
+
+
 
 <table class="table table-hover table-bordered table-striped">
     <thead class="thead-light">
